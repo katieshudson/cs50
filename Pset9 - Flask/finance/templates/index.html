@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Symbol</th>
+        <th scope="col">Name</th>
+        <th scope="col">Shares</th>
+        <th scope="col">Price</th>
+        <th scope="col">TOTAL</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for stock in stocks_portfolio %}
+            <tr>
+                <th scope="row">{{ stock["symbol"] }}</th>
+                <td>{{ stock["company_name"] }}</td>
+                <td>{{ stock["num_shares"] }}</td>
+                <td>{{ "$%.2f"|format(stock["price"]) }}</td>
+                <td> {{ "$%.2f"|format(stock["num_shares"] * stock["price"]) }} </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+    <tfoot>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <th>Cash Available</th>
+            <td>{{ cash }}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <th>TOTAL PORTFOLIO VALUE</th>
+            <td>
+
+                {{ "$%.2f"|format(total_value) }}
+            </td>
+        </tr>
+    </tfoot>
+  </table>
+
+{% endblock %}
+
+<!-- td = table data -->
+<!-- tr = table row -->
+<!-- th = table header -->

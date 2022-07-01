@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+
+            // wait for full page to load
+            document.addEventListener('DOMContentLoaded', function(){
+
+                /* PART 1 - MC */
+                //select elements you want to add action to --> class 'correct'
+                let correct = document.querySelector('.correct');
+
+                // do something when a click happens on the 'correct' element
+                correct.addEventListener('click', function(){
+                    correct.style.backgroundColor = 'green';  // change button to green when clicked
+                    document.querySelector('#feedback1').innerHTML = 'Correct!'; // update text underneath to say 'correct'
+                });
+
+                // select elements you want to add action to --> class 'wrong'
+                let wrong = document.querySelectorAll('.wrong');
+
+                for (let i = 0; i < wrong.length; i++) {
+                    wrong[i].addEventListener('click', function() {
+                        wrong[i].style.backgroundColor = 'red';
+                        document.querySelector('#feedback1').innerHTML = 'Incorrect';
+                    });
+                }
+
+                /* PART 2 - FREE RESPONSE */
+
+                //check submit button element
+                let checkAnswer = document.querySelector('#submit');
+
+                // check if button has been clicked
+                checkAnswer.addEventListener('click', function(){
+
+                    // select input element
+                    let input = document.querySelector('input');
+                    if (input.value === 'Brut Nature') {
+                        input.style.backgroundColor = 'green';
+                        document.querySelector('#feedback2').innerHTML = 'Correct';
+                    } else {
+                        input.style.backgroundColor = 'red';
+                        document.querySelector('#feedback2').innerHTML = 'Incorrect';
+                    }
+                });
+
+            });
+
+
+
+
+
+                // when incorrect answer is clicked, button turns red, text appears incorrect
+                // when correct answer is clicked, button turns green, text appears correct
+
+
+            // PART 2 - FREE RESPONSE
+
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>What percentage of the global Cava supply is produced in the region of Penedès, Spain?</h3>
+                    <button id="multiple choice" class="wrong" >15%</button>
+                    <button id="multiple choice" class="wrong">43%</button>
+                    <button id="multiple choice" class="wrong">72%</button>
+                    <button id="multiple choice" class="correct">95%</button>
+
+                    <p id="feedback1"></p>
+
+
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>What type of Cava has zero sugar added in the second fermentation process?</h3>
+                    <input placeholder="Enter your answer here"></input>
+                    <button id="submit">Check Answer</button>
+
+                    <p id="feedback2"></p>
+            </div>
+        </div>
+    </body>
+</html>

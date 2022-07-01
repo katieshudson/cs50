@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            // TODO: Add code to check answers to questions
+
+            // wait until the whole document is loaded, and then perform the function
+            document.addEventListener('DOMContentLoaded', function() {
+
+                // PART ONE ANSWER CHECK
+                let correct = document.querySelector('.correct');
+                // when user clicks on button with 'correct' class
+                correct.addEventListener('click', function() {
+                    correct.style.backgroundColor = 'green'; // turn button color green
+                    document.querySelector('#feedback1').innerHTML = 'Correct!';  // add text underneath
+                });
+
+                // NON LOOP WAY
+                // let wrong1 = document.querySelector('.wrong1');
+                // wrong1.addEventListener('click', function() {
+                //     wrong1.style.backgroundColor = 'red';
+                //     document.querySelector('#feedback1').innerHTML = 'Incorrect!';
+                // });
+
+                // let wrong2 = document.querySelector('.wrong2');
+                // wrong2.addEventListener('click', function() {
+                //     wrong2.style.backgroundColor = 'red';
+                //     document.querySelector('#feedback1').innerHTML = 'Incorrect!';
+                // });
+
+                // let wrong3 = document.querySelector('.wrong3');
+                // wrong3.addEventListener('click', function() {
+                //     wrong3.style.backgroundColor = 'red';
+                //     document.querySelector('#feedback1').innerHTML = 'Incorrect!';
+                // });
+
+                // using a for loop
+                let wrong = document.querySelectorAll('.wrong');
+                for (let i = 0; i < wrong.length; i++) {
+                    wrong[i].addEventListener('click', function() {
+                        wrong[i].style.backgroundColor = 'red';
+                        document.querySelector('#feedback1').innerHTML = 'Incorrect';
+                    });
+                }
+
+                // PART TWO ASNWER CHECK
+                document.querySelector('#check').addEventListener('click', function() {
+                    let input = document.querySelector('input');
+                    if (input.value === 'Brut Nature') {
+                        input.style.backgroundColor = 'green';
+                        document.querySelector('#feedback2').innerHTML = 'Correct!';
+                    } else {
+                        input.style.backgroundColor = 'red';
+                        document.querySelector('#feedback2').innerHTML = 'Incorrect!';
+                    }
+                });
+        });
+
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Welcome to Cava Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section" id="buttons">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+
+                <h3> What percentage of the world's Cava is produced in the region of Penedès?</h3>
+                    <button class="wrong">15%</button>
+                    <button class="wrong">43%</button>
+                    <button class="wrong">78%</button>
+                    <button class="correct">95%</button>
+
+                    <p id="feedback1"></p>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                    <h3>What is the name when for Cava when it has no added sugar?</h3>
+                        <input type="text"></input>
+                        <button id="check">Check Answer</button>
+
+                        <p id="feedback2"></p>
+            </div>
+        </div>
+    </body>
+</html>
