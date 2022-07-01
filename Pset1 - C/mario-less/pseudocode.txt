@@ -1,0 +1,8 @@
+Prompt user for height
+
+Height prompt should have a condition that it has to be 1 to 8 inclusive
+
+If height is less than one or greater than 8 then prompt the user again for a height using a do while loop
+
+Create a for loop that will iterate from 0 to height to print a space, a hash and then a new line for each row depending on how high the pyramid is
+

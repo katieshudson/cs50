@@ -1,0 +1,24 @@
+sort1 uses: Bubble Sort
+
+How do you know?:
+- As n increases, sort1 has the slowest runtime for 2 of 3 random txt files
+- As n increases, sort1 has the slowest runtime for 2 of 3 reversed txt files
+- Has the same / similar run time as sort2 for the 3 sorted files and out performs sort3
+- In Bubble Sort, its worst case scenario is always a reversed file because it has to make more swaps, and has similar / fastest run for sorted files because it knows there are no swaps necessary
+
+sort2 uses: Merge Sort
+
+How do you know?:
+- Merge Sort is faster than O(n2) - thus in randomized or reversed order should perform better than Selection and Bubble sort
+- sort2 has the fastest / most efficient run time for all 3 random txt files
+- Generally has the fastest / most efficient run time for 2 of the 3 reversed txt files
+- Has the same / similar run time as sort1 for the 3 sorted files
+- sort2 performs well in all 3 cases, despite files being reversed, random, or sorted, this is beecause its best and worst case scenario O and Omega are the same (n log n) for Merge sort.
+
+sort3 uses: Selection Sort
+
+How do you know?:
+- has the slowest run time for all 3 sorted files, no matter the size of n
+- as n increases, sort3 has the 2nd best run time of the random txt files
+- has mixed results with all 3 reversed txt files
+- Even if list is sorted, Selection sort still has to iterate through and perform the same sorting method regardless which is why sort3 has the worst run time for sorted files
